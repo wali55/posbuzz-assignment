@@ -1,0 +1,18 @@
+model Sale {
+  id          String     @id @default(uuid())
+  createdAt   DateTime   @default(now())
+  totalAmount Decimal    @db.Decimal(10, 2)
+  userId      String
+  user        User       @relation(fields: [userId], references: [id])
+  items       SaleItem[]
+}
+
+model SaleItem {
+  id        String  @id @default(uuid())
+  quantity  Int
+  price     Decimal @db.Decimal(10, 2) 
+  saleId    String
+  sale      Sale    @relation(fields: [saleId], references: [id])
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+}
