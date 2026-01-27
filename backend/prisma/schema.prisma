@@ -1,6 +1,6 @@
 generator client {
   provider     = "prisma-client"
-  output   = "../generated/prisma"
+  output       = "../generated/prisma"
   moduleFormat = "cjs"
 }
 
@@ -9,11 +9,12 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(uuid())
-  email    String @unique
-  password String 
-  name     String?
-  sales    Sale[]
+  id         String @id @default(uuid())
+  email      String @unique
+  password   String
+  first_name String
+  last_name  String
+  sales      Sale[]
 }
 
 model Product {
@@ -37,7 +38,7 @@ model Sale {
 model SaleItem {
   id        String  @id @default(uuid())
   quantity  Int
-  price     Decimal @db.Decimal(10, 2) 
+  price     Decimal @db.Decimal(10, 2)
   saleId    String
   sale      Sale    @relation(fields: [saleId], references: [id])
   productId String
