@@ -1,3 +1,30 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       String @id @default(uuid())
+  email    String @unique
+  password String 
+  name     String?
+  sales    Sale[]
+}
+
+model Product {
+  id             String     @id @default(uuid())
+  name           String
+  sku            String     @unique
+  price          Decimal    @db.Decimal(10, 2)
+  stock_quantity Int        @default(0)
+  saleItems      SaleItem[]
+}
+
 model Sale {
   id          String     @id @default(uuid())
   createdAt   DateTime   @default(now())
