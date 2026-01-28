@@ -1,0 +1,324 @@
+{
+  "info": {
+    "_postman_id": "f88e58b0-fe66-4cc9-9bb3-9a31148c6c1d",
+    "name": "PosBuzz-Assignment-Waliullah",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "25739922"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"first_name\": \"Md.\",\r\n    \"last_name\": \"Waliullah\",\r\n    \"email\": \"wali@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"hasib@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "product",
+      "item": [
+        {
+          "name": "createProduct",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMzlkYjZlMS1kNGRhLTQzNzUtOGIwNi02NTUzMTYyM2E2MzciLCJpYXQiOjE3Njk1MjU4OTQsImV4cCI6MTc2OTUyOTQ5NH0.XRF1FhlU7dG55HuyyYzCPDrQ7Qdf4Uwwh3483FFLrMM",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Pixel 12\",\r\n    \"sku\": \"M106\",\r\n    \"price\": 70000,\r\n    \"stock_quantity\": 4\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAllProducts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMzlkYjZlMS1kNGRhLTQzNzUtOGIwNi02NTUzMTYyM2E2MzciLCJpYXQiOjE3Njk1MzI4NDEsImV4cCI6MTc2OTUzNjQ0MX0.Q1Kybo3p_vOow2rd4Uunenejgj3xmAfCyRC-EsXRYNI",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getSingleProduct",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMzlkYjZlMS1kNGRhLTQzNzUtOGIwNi02NTUzMTYyM2E2MzciLCJpYXQiOjE3Njk1MjU4OTQsImV4cCI6MTc2OTUyOTQ5NH0.XRF1FhlU7dG55HuyyYzCPDrQ7Qdf4Uwwh3483FFLrMM",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/products/f6e21006-8491-4401-b045-2520b9be2c3a",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "f6e21006-8491-4401-b045-2520b9be2c3a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateProduct",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMzlkYjZlMS1kNGRhLTQzNzUtOGIwNi02NTUzMTYyM2E2MzciLCJpYXQiOjE3Njk1MjU4OTQsImV4cCI6MTc2OTUyOTQ5NH0.XRF1FhlU7dG55HuyyYzCPDrQ7Qdf4Uwwh3483FFLrMM",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Pixel 8 Pro\",\r\n    \"price\": \"22000\",\r\n    \"stock_quantity\": 4\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/products/8c453948-6315-4c59-b565-6dcd6a290d30",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "8c453948-6315-4c59-b565-6dcd6a290d30"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteProduct",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMzlkYjZlMS1kNGRhLTQzNzUtOGIwNi02NTUzMTYyM2E2MzciLCJpYXQiOjE3Njk1MjU4OTQsImV4cCI6MTc2OTUyOTQ5NH0.XRF1FhlU7dG55HuyyYzCPDrQ7Qdf4Uwwh3483FFLrMM",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/products/f6e21006-8491-4401-b045-2520b9be2c3a",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products",
+                "f6e21006-8491-4401-b045-2520b9be2c3a"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "sale",
+      "item": [
+        {
+          "name": "createSale",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMzlkYjZlMS1kNGRhLTQzNzUtOGIwNi02NTUzMTYyM2E2MzciLCJpYXQiOjE3Njk1MzMxNTksImV4cCI6MTc2OTUzNjc1OX0.77L4HivAs31P7IiRMZjvzfeA7cD7Ttc1AsByaSHCHf0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"items\": [\r\n        {\r\n            \"productId\": \"e132ee03-cfb9-4ed7-a575-2da162b0602b\",\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"productId\": \"8c453948-6315-4c59-b565-6dcd6a290d30\",\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sales",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAllSales",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMzlkYjZlMS1kNGRhLTQzNzUtOGIwNi02NTUzMTYyM2E2MzciLCJpYXQiOjE3Njk1MzMxNTksImV4cCI6MTc2OTUzNjc1OX0.77L4HivAs31P7IiRMZjvzfeA7cD7Ttc1AsByaSHCHf0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sales",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getSingleSale",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMzlkYjZlMS1kNGRhLTQzNzUtOGIwNi02NTUzMTYyM2E2MzciLCJpYXQiOjE3Njk1MzMxNTksImV4cCI6MTc2OTUzNjc1OX0.77L4HivAs31P7IiRMZjvzfeA7cD7Ttc1AsByaSHCHf0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sales/27c20224-2dc4-4d77-a7b2-fe00c6709cc1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales",
+                "27c20224-2dc4-4d77-a7b2-fe00c6709cc1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}

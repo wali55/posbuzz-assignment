@@ -115,7 +115,7 @@ export class ProductService {
       });
 
       if (!result) {
-        throw new BadRequestException();
+        throw new BadRequestException("No product");
       }
 
       return {
@@ -125,6 +125,11 @@ export class ProductService {
       }
     } catch (error) {
       console.log(error);
+      if (error.code === "P2003") {
+        throw new BadRequestException(
+          'Cannot delete this product. Sale is created with this product!',
+        );
+      }
       throw new BadRequestException();
     }
   }
