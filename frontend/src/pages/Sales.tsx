@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Typography, Table, Button, Tag, message } from 'antd';
+import { Typography, Table, Button, message } from 'antd';
 import { 
   PlusOutlined, 
   EyeOutlined 
@@ -8,7 +8,7 @@ import {
 const { Title } = Typography;
 
 export default function Sales() {
-  const [sales, setSales] = useState([
+  const [sales] = useState([
     {
       key: '1',
       createdBy: 'John Smith',
@@ -71,7 +71,7 @@ export default function Sales() {
     },
   ]);
 
-  const handleView = (record) => {
+  const handleView = (record: any) => {
     console.log('View sale:', record);
     message.info(`Viewing sale #${record.key}`);
     // Add view logic here
@@ -88,8 +88,9 @@ export default function Sales() {
       title: 'Created By',
       dataIndex: 'createdBy',
       key: 'createdBy',
+      //@ts-ignore
       sorter: (a, b) => a.createdBy.localeCompare(b.createdBy),
-      render: (name) => (
+      render: (name: string) => (
         <span style={{ fontWeight: 500 }}>{name}</span>
       ),
     },
@@ -97,8 +98,9 @@ export default function Sales() {
       title: 'Total Price',
       dataIndex: 'totalPrice',
       key: 'totalPrice',
+      //@ts-ignore
       sorter: (a, b) => a.totalPrice - b.totalPrice,
-      render: (price) => (
+      render: (price: number) => (
         <span style={{ 
           color: '#1890ff', 
           fontWeight: 600,
@@ -112,9 +114,10 @@ export default function Sales() {
       title: 'Created At',
       dataIndex: 'createdAt',
       key: 'createdAt',
-      sorter: (a, b) => new Date(a.createdAt) - new Date(b.createdAt),
+      // @ts-ignore
+      sorter: (a: string, b: string) => new Date(a.createdAt) - new Date(b.createdAt),
       defaultSortOrder: 'descend',
-      render: (date) => {
+      render: (date:string) => {
         const dateObj = new Date(date);
         const today = new Date();
         const yesterday = new Date(today);
@@ -151,7 +154,7 @@ export default function Sales() {
       key: 'actions',
       fixed: 'right',
       width: 100,
-      render: (_, record) => (
+      render: (_: any, record: any) => (
         <Button
           type="text"
           icon={<EyeOutlined />}
@@ -162,7 +165,7 @@ export default function Sales() {
     },
   ];
 
-  // Calculate total sales
+  
   const totalSales = sales.reduce((sum, sale) => sum + sale.totalPrice, 0);
 
   return (
@@ -202,6 +205,7 @@ export default function Sales() {
       </div>
 
       <Table 
+      // @ts-ignore
         columns={columns} 
         dataSource={sales} 
         pagination={{ 
